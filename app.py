@@ -23,7 +23,7 @@ def transcribe_audio():
         account_sid = data.get('account_sid')
         auth_token = data.get('auth_token')
         recording_sid = data.get('recording_sid')
-        whisper_model_size = data.get('whisper_model_size', 'base')
+        whisper_model_size = data.get('whisper_model_size', 'tiny')
 
         if not all([account_sid, auth_token, recording_sid]):
             return jsonify({"error": "Missing required parameters: account_sid, auth_token, recording_sid"}), 400
@@ -106,3 +106,4 @@ def home():
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
+
